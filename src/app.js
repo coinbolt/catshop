@@ -2,39 +2,45 @@
  * @jsx React.DOM
  */
 
-var catData = require('./cat-data')
-var hb = require('./helloblock')
-
-var NUM_CATS = 6
-var LOW_PRICE = 0.0001 //cheap cat :)
-var HIGH_PRICE = 0.1
-
-var cats = catData.getCats(NUM_CATS, LOW_PRICE, HIGH_PRICE)
-
+var React = require('react');
 var ProductList = require('./productlist');
 
 var CheckoutButton = require('./CheckoutButton');
 
-var React = require('react');
+var App = React.createClass({
+  render: function() {
+    return (
+      <div>
+      <div className="navbar navbar-fixed-top navbar-inverse" role="navigation">
+        <div className="container">
+          <div className="navbar-header">
+            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span className="sr-only">Toggle navigation</span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+            </button>
+            <a className="navbar-brand" href="#">Bitcoin Test Network - Cat Shop</a>
+          </div>
 
-function onload() {
-  React.renderComponent(
-    <ProductList data={cats} />,
-    document.querySelector('.products')
-  );
-  React.renderComponent(
-    <CheckoutButton />,
-    document.querySelector('.navbar-right li')
-  );
+          <div className="collapse navbar-collapse">
+            <ul className="nav navbar-nav">
+              <li className="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <ul className="nav navbar-nav navbar-right">
+              <li><CheckoutButton /></li>
+              <li><a href="https://www.coinbolt.com">Return to Coinbolt</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-  console.log('hello from catshop!')
-}
+      <ProductList data={this.props.products} />
+      </div>
+      );
+  }
+});
 
-module.exports = {
-  onload: onload
-}
-
-
-
-
-
+module.exports = App;
