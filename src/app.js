@@ -17,12 +17,18 @@ var cats = catData.getCats(NUM_CATS, LOW_PRICE, HIGH_PRICE)
 
 var ProductList = require('./productlist');
 
+var CheckoutButton = require('./CheckoutButton');
+
 var React = require('react');
 
 function onload() {
   React.renderComponent(
     <ProductList data={cats} />,
     document.querySelector('.products')
+  );
+  React.renderComponent(
+    <CheckoutButton />,
+    document.querySelector('.navbar-right li')
   );
   console.log('hello from catshop!')
 }
