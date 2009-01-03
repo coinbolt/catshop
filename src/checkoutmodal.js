@@ -21,8 +21,13 @@ var CheckoutModal = React.createClass({
     var totalPrice = this.props.products.reduce(function(price, product) {
       return price + product.price;
     }, 0);
-    var contents;
+    var contents, buyButton;
     if (this.state.screen === 'cart') {
+      if (this.props.products.length > 0) {
+        buyButton = <button type="button" className="btn btn-success" onClick={this.onCheckout}>
+                Buy now <span className="glyphicon glyphicon-play"></span>
+            </button>;
+      }
         contents = <div><div className="modal-body">
             <Cart products={this.props.products} totalPrice={totalPrice} />
           </div>
@@ -30,9 +35,7 @@ var CheckoutModal = React.createClass({
             <button type="button" className="btn btn-default" onClick={this.props.onRequestHide}>
                 <span className="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
             </button>
-            <button type="button" className="btn btn-success" onClick={this.onCheckout}>
-                Buy now <span className="glyphicon glyphicon-play"></span>
-            </button>
+            {buyButton}
           </div></div>;
     } else {
       var address = addresses.getPaymentAddress();
