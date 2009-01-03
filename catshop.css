@@ -35,3 +35,7 @@ footer {
 .cat {
   padding-bottom: 14px;
 }
+
+.btn-hidden {
+  visibility: hidden;
+}
