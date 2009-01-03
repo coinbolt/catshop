@@ -15,38 +15,50 @@ var CheckoutQR = React.createClass({
   getInitialState: function() {
     return {
       done: false,
-      status: 'Not confirmed'
+      status: 'Not confirmed',
+      paidValue: 0
     };
   },
   componentDidMount: function() {
-    helloblock.connectAndListenForTx(this.props.address, function(err, data) {
-      console.log.apply(console, arguments);
-      if (err) {
-        this.setState({
-          done: true,
-          status: 'Failed: ' + err
-        });
-      } else {
-        this.setState({
-          done: true,
-          status: 'Confirmed: ' + err
-        });
-      }
+    var address = this.props.address;
+    this.connection = helloblock.connectAndListenForTx(address, function(tx) {
+      var value = tx.outputs.filter(function(output) {
+        return output.address === address;
+      }).reduce(function(value, output) {
+        return value + output.value;
+      }, 0);
+      this.setState({
+        done: true,
+        status: 'Confirmed (' + tx.confirmations + ')',
+        paidValue: this.state.paidValue + (value / 100000000)
+      });
+    }.bind(this), function(error) {
+      this.setState({
+        done: true,
+        status: 'Failed: ' + err,
+        paidValue: 0
+      });
     }.bind(this));
   },
+  componentWillUnmount: function() {
+    this.connection.close();
+  },
   render: function() {
+    var doneEnabled = this.state.done && (this.state.paidValue >= this.props.totalPrice);
     return (
       <div>
         <div className="modal-body center">
-          <p>Pay {this.props.totalPrice} BTC to {this.props.address}</p>
+          <p>Pay {this.props.totalPrice} BTC to <strong>{this.props.address}</strong> (already paid {this.state.paidValue}).</p>
           <img src={generateQR(this.props.address, this.props.totalPrice)} />
-          <div>Status: {this.state.status}</div>
+          <div>Status:
+            { this.state.paidValue >= this.props.totalPrice ? <span className="glyphicon glyphicon-ok"></span> : null }
+            {this.state.status}</div>
         </div>
         <div className="modal-footer">
           <button type="button" className="btn btn-default" onClick={this.props.onRequestHide}>
-            <span className="glyphicon glyphicon-shopping-cart"></span> Cancel
+            Cancel
           </button>
-          <button type="button" className="btn btn-success" disabled={!this.state.done} onClick={this.props.onRequestHide}>
+          <button type="button" className="btn btn-success" disabled={!doneEnabled} onClick={this.props.onRequestHide}>
             Done <span className="glyphicon glyphicon-play"></span>
           </button>
         </div>
