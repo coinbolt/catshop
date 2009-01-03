@@ -16,7 +16,7 @@ var Product = React.createClass({
     this.setState({
         addedToCard: true
     });
-    productAdded.publish(this.props.id);
+    productAdded.publish(this.props.product);
   },
   render: function() {
     var cartAction;
@@ -27,9 +27,9 @@ var Product = React.createClass({
     }
     return (
         <div className="col-6 col-sm-6 col-lg-4 cat">
-            <img src={this.props.image} className="img-responsive" />
-            <h2>{this.props.name}</h2>
-            <h4>{this.props.price} BTC</h4>
+            <img src={this.props.product.image} className="img-responsive" />
+            <h2>{this.props.product.name}</h2>
+            <h4>{this.props.product.price} BTC</h4>
             {cartAction}
         </div>
     );
