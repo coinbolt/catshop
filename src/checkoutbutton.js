@@ -8,7 +8,7 @@ var CheckoutModal = require('./checkoutmodal');
 
 var ModalTrigger = require('react-bootstrap').ModalTrigger;
 
-var productAdded = require('./productAdded');
+var productevents = require('./productevents');
 
 var CheckoutButton = React.createClass({
   getInitialState: function() {
@@ -17,13 +17,20 @@ var CheckoutButton = React.createClass({
     };
   },
   componentDidMount: function() {
-    productAdded.subscribe(this.onProductAdded);
+    productevents.productAdded.subscribe(this.onProductAdded);
+    productevents.productRemoved.subscribe(this.onProductRemoved);
   },
   componentWillUnmount: function() {
-    productAdded.unsubscribe(this.onProductAdded);
+    productevents.productAdded.unsubscribe(this.onProductAdded);
+    productevents.productRemoved.unsubscribe(this.onProductRemoved);
   },
   onProductAdded: function(event, product) {
     this.setState({products: this.state.products.concat(product) });
+  },
+  onProductRemoved: function(event, removed) {
+    this.setState({products: this.state.products.filter(function(product) {
+        return product !== removed
+    })});
   },
   render: function() {
     return (

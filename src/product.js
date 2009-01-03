@@ -4,7 +4,7 @@
 
 var React = require('react');
 
-var productAdded = require('./productAdded');
+var productAdded = require('./productevents').productAdded;
 
 var Product = React.createClass({
   getInitialState: function() {

@@ -2,7 +2,13 @@
 
 var React = require('react');
 
+var productRemoved = require('./productevents').productRemoved;
+
 var CartItem = React.createClass({
+  handleRemove: function(e) {
+    e.stopPropagation();
+    productRemoved.publish(this.props.product);
+  },
   render: function() {
     return (
         <tr>
@@ -15,7 +21,7 @@ var CartItem = React.createClass({
             </div></td>
             <td className="col-sm-1 col-md-1 text-center"><strong>{this.props.product.price} </strong></td>
             <td className="col-sm-1 col-md-1">
-            <button type="button" className="btn btn-danger">
+            <button type="button" className="btn btn-danger" onClick={this.handleRemove}>
                 <span className="glyphicon glyphicon-remove"></span> Remove
             </button></td>
         </tr>
