@@ -5,6 +5,7 @@
 var React = require('react');
 
 var productAdded = require('./productevents').productAdded;
+var productRemoved = require('./productevents').productRemoved;
 
 var Product = React.createClass({
   getInitialState: function() {
@@ -17,6 +18,17 @@ var Product = React.createClass({
         addedToCard: true
     });
     productAdded.publish(this.props.product);
+  },
+  componentDidMount: function() {
+    productRemoved.subscribe(this.onProductRemoved);
+  },
+  componentWillUnmount: function() {
+    productRemoved.unsubscribe(this.onProductRemoved);
+  },
+  onProductRemoved: function(e, removed) {
+    if (removed === this.props.product) {
+      this.setState({addedToCard: false});
+    }
   },
   render: function() {
     var cartAction;
