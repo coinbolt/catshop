@@ -1,14 +1,9 @@
-/**
- * @jsx React.DOM
- */
-
-var React = require('react');
+/** @jsx React.DOM */
 
 var CheckoutModal = require('./checkoutmodal');
-
 var ModalTrigger = require('react-bootstrap').ModalTrigger;
-
 var productevents = require('./productevents');
+var React = require('react');
 
 var CheckoutButton = React.createClass({
   getInitialState: function() {
@@ -25,12 +20,16 @@ var CheckoutButton = React.createClass({
     productevents.productRemoved.unsubscribe(this.onProductRemoved);
   },
   onProductAdded: function(event, product) {
-    this.setState({products: this.state.products.concat(product) });
+    this.setState({
+      products: this.state.products.concat(product)
+    });
   },
   onProductRemoved: function(event, removed) {
-    this.setState({products: this.state.products.filter(function(product) {
-        return product !== removed
-    })});
+    this.setState({
+      products: this.state.products.filter(function(product) {
+        return product !== removed;
+      })
+    });
   },
   render: function() {
     return (

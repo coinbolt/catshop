@@ -1,13 +1,10 @@
-/**
- * @jsx React.DOM
- */
+/** @jsx React.DOM */
 
-var React = require('react');
 var App = require('./app');
-
 var cats = require('./cat-data').getCats();
+var React = require('react');
 
 React.renderComponent(
-    <App products={cats} />,
-    document.querySelector('.app')
+  <App products={cats} />,
+  document.querySelector('.app')
 );

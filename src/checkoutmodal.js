@@ -1,12 +1,9 @@
 /** @jsx React.DOM */
 
-var React = require('react');
-
-var Modal = require('react-bootstrap').Modal;
-
-var Cart = require('./cart');
-
 var addresses = require('./addresses');
+var Cart = require('./cart');
+var Modal = require('react-bootstrap').Modal;
+var React = require('react');
 
 var CheckoutModal = React.createClass({
   getInitialState: function() {
@@ -15,7 +12,9 @@ var CheckoutModal = React.createClass({
     };
   },
   onCheckout: function() {
-    this.setState({screen: 'checkout'});
+    this.setState({
+      screen: 'checkout'
+    });
   },
   render: function() {
     var totalPrice = this.props.products.reduce(function(price, product) {
