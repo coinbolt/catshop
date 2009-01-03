@@ -1,39 +1,30 @@
+var IMG_URL = "http://lorempixel.com/600/400/cats/"
 
-var IMG_URL = 'http://lorempixel.com/600/400/cats/';
+//missing 6 is intentional, IIRC it's an ugly cat :)
+var catImages = [1,2,3,4,5,7,8,9,10].map(function(n) { return IMG_URL + n})
+var catNames = [
+  'Skittles',
+  'Petey',
+  'Patches',
+  'Fluffy',
+  'Boots',
+  'Dudley',
+  'Ping',
+  'Flair',
+  'Whiskers'
+];
 
-var cats = [{
-  id: 1,
-  name: 'Fluffy',
-  price: 25,
-  image: IMG_URL + '1'
-}, {
-  id: 2,
-  name: 'Skittles',
-  price: 56,
-  image: IMG_URL + '2'
-}, {
-  id: 3,
-  name: 'Petey',
-  price: 2,
-  image: IMG_URL + '3'
-}, {
-  id: 4,
-  name: 'Patches',
-  price: 63,
-  image: IMG_URL + '4'
-}, {
-  id: 5,
-  name: 'Boots',
-  price: 21,
-  image: IMG_URL + '5'
-}, {
-  id: 6,
-  name: 'Dudley',
-  price: 17,
-  image: IMG_URL + '7'
-}];
-
-function getCats() {
+function getCats(num, lowPrice, highPrice) {
+  var cats = []
+  for (var i = 0; i < num; ++i) {
+    var cat = {
+      id: i,
+      image: catImages[i],
+      name: catNames[Math.floor(Math.random() * catNames.length)],
+      price: Math.round((lowPrice + Math.random()*(highPrice - lowPrice)) * 1000) / 1000
+    };
+    cats.push(cat);
+  }
   return cats
 }
 
