@@ -1,8 +1,15 @@
 /** @jsx React.DOM */
 
-var addresses = require('./addresses');
 var helloblock = require('./helloblock');
+var qr = require('qr-encode');
 var React = require('react');
+var util = require('util');
+
+function generateQR(address, amount) {
+  var url = util.format('bitcoin:%s?amount=%d', address, amount);
+  var dataUri = qr(url, {type: 6, size: 6, level: 'Q'});
+  return dataUri;
+}
 
 var CheckoutQR = React.createClass({
   getInitialState: function() {
@@ -32,7 +39,7 @@ var CheckoutQR = React.createClass({
       <div>
         <div className="modal-body center">
           <p>Pay {this.props.totalPrice} BTC to {this.props.address}</p>
-          <img src={addresses.generateQR(this.props.address, this.props.totalPrice)} />
+          <img src={generateQR(this.props.address, this.props.totalPrice)} />
           <div>Status: {this.state.status}</div>
         </div>
         <div className="modal-footer">
