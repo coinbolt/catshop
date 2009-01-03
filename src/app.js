@@ -1,3 +1,7 @@
+/**
+ * @jsx React.DOM
+ */
+
 var util = require('util')
 var CoinKey = require('coinkey')
 var qr = require('qr-encode')
@@ -7,12 +11,19 @@ var hb = require('./helloblock')
 
 var NUM_CATS = 6
 var LOW_PRICE = 0.0001 //cheap cat :)
-var HIGH_PRICE = 0.1 
+var HIGH_PRICE = 0.1
 
 var cats = catData.getCats(NUM_CATS, LOW_PRICE, HIGH_PRICE)
 
+var ProductList = require('./productlist');
+
+var React = require('react');
 
 function onload() {
+  React.renderComponent(
+    <ProductList data={cats} />,
+    document.querySelector('.products')
+  );
   console.log('hello from catshop!')
 }
 
