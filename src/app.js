@@ -30,6 +30,7 @@ function onload() {
     <CheckoutButton />,
     document.querySelector('.navbar-right li')
   );
+
   console.log('hello from catshop!')
 }
 

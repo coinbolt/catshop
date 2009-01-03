@@ -16,7 +16,8 @@
     "reload": "^0.1.0",
     "watchify": "^1.0.6",
     "react": "^0.11.2",
-    "reactify": "^0.14.0"
+    "reactify": "^0.14.0",
+    "react-bootstrap": "^0.12.0"
   },
   "repository": {
     "url": "git@github.com:jprichardson/catshop.git",
