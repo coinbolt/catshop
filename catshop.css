@@ -39,3 +39,6 @@ footer {
 .btn-hidden {
   visibility: hidden;
 }
+
+.media-object { width: 72px; height: 72px; }
+.col-md-1.center { text-align: center }
