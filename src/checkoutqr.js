@@ -4,6 +4,7 @@ var helloblock = require('./helloblock');
 var qr = require('qr-encode');
 var React = require('react');
 var util = require('util');
+var productRemoved = require('./productevents').productRemoved;
 
 function generateQR(address, amount) {
   var url = util.format('bitcoin:%s?amount=%d', address, amount);
@@ -43,6 +44,10 @@ var CheckoutQR = React.createClass({
   componentWillUnmount: function() {
     this.connection.close();
   },
+  handleDoneClick: function(e) {
+    productRemoved.publish(null);
+    this.props.onRequestHide(e);
+  },
   render: function() {
     var doneEnabled = this.state.done && (this.state.paidValue >= this.props.totalPrice);
     return (
@@ -58,7 +63,7 @@ var CheckoutQR = React.createClass({
           <button type="button" className="btn btn-default" onClick={this.props.onRequestHide}>
             Cancel
           </button>
-          <button type="button" className="btn btn-success" disabled={!doneEnabled} onClick={this.props.onRequestHide}>
+          <button type="button" className="btn btn-success" disabled={!doneEnabled} onClick={this.handleDoneClick}>
             Done <span className="glyphicon glyphicon-play"></span>
           </button>
         </div>

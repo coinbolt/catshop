@@ -25,11 +25,17 @@ var CheckoutButton = React.createClass({
     });
   },
   onProductRemoved: function(event, removed) {
-    this.setState({
-      products: this.state.products.filter(function(product) {
-        return product !== removed;
-      })
-    });
+    if (!removed) {
+      this.setState({
+        products: []
+      });
+    } else {
+      this.setState({
+        products: this.state.products.filter(function(product) {
+          return product !== removed;
+        })
+      });
+    }
   },
   render: function() {
     return (

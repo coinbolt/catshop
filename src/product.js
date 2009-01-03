@@ -25,7 +25,7 @@ var Product = React.createClass({
     productRemoved.unsubscribe(this.onProductRemoved);
   },
   onProductRemoved: function(e, removed) {
-    if (removed === this.props.product) {
+    if (removed === this.props.product || !removed) {
       this.setState({
         addedToCard: false
       });
