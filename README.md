@@ -6,6 +6,13 @@ install deps:
 
     npm install
 
-build:
+run the reload local webserver:
 
-    npm run build
+    npm run reload
+
+run the watch build:
+
+    npm run watch-build
+
+
+Now you can edit/save your JavaScript and the webserver will automatically reload everything
