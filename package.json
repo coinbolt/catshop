@@ -4,18 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "./node_modules/.bin/browserify ./src/app.js -s catshop -o bundle.js"
   },
   "author": "JP Richardson",
   "license": "AGPL",
   "devDependencies": {
-    "browserify": "^5.12.1"
+    "browserify": "^5.12.1",
+    "crypto-browserify": "^3.2.5"
   },
   "repository": {
     "url": "git@github.com:jprichardson/catshop.git",
     "type": "git"
   },
-  "scripts": {
-    "build": "./node_modules/.bin/browserify ./src/app.js -o bundle.js"
+  "dependencies": {
+    "secure-random": "^1.1.1",
+    "coinkey": "^1.2.0",
+    "qr-encode": "^0.2.0"
+  },
+  "browser": {
+    "crypto": "crypto-browserify"
   }
 }
