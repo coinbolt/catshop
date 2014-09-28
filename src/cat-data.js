@@ -22,6 +22,7 @@ function getCats(num, lowPrice, highPrice) {
       name: catNames[Math.floor(Math.random() * catNames.length)],
       price: lowPrice + Math.random()*(highPrice - lowPrice)
     }
+    cats.push(cat)
   }
 
   return cats
