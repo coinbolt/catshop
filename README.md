@@ -1,0 +1,1 @@
+To test your Bitcoin testnet wallet.
