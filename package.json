@@ -8,4 +8,8 @@
   },
   "author": "JP Richardson",
   "license": "AGPL"
+  "repository": {
+    "url": "git@github.com:jprichardson/catshop.git",
+    "type": "git"
+  }
 }
