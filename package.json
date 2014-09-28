@@ -7,9 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JP Richardson",
-  "license": "AGPL"
+  "license": "AGPL",
+  "devDependencies": {
+    "browserify": "^5.12.1"
+  },
   "repository": {
     "url": "git@github.com:jprichardson/catshop.git",
     "type": "git"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/browserify ./src/app.js -o bundle.js"
   }
 }
