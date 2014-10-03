@@ -24,7 +24,6 @@ var App = React.createClass({
               <ul className="nav navbar-nav">
                 <li className="active"><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
               </ul>
               <ul className="nav navbar-nav navbar-right">
                 <li><CheckoutButton /></li>
