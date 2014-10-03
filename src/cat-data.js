@@ -12,7 +12,7 @@ var catNames = [
   'Ping',
   'Flair',
   'Whiskers'
-];
+]
 
 function getCats(num, lowPrice, highPrice) {
   var cats = []
@@ -22,12 +22,12 @@ function getCats(num, lowPrice, highPrice) {
       image: catImages[i],
       name: catNames[Math.floor(Math.random() * catNames.length)],
       price: Math.round((lowPrice + Math.random()*(highPrice - lowPrice)) * 1000) / 1000
-    };
-    cats.push(cat);
+    }
+    cats.push(cat)
   }
   return cats
 }
 
 module.exports = {
   getCats: getCats
-};
+}
