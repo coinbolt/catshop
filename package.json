@@ -15,9 +15,7 @@
     "crypto-browserify": "^3.2.5",
     "reload": "^0.1.0",
     "watchify": "^1.0.6",
-    "react": "^0.11.2",
-    "reactify": "^0.14.0",
-    "react-bootstrap": "^0.12.0"
+    "reactify": "^0.14.0"
   },
   "repository": {
     "url": "git@github.com:jprichardson/catshop.git",
@@ -27,7 +25,9 @@
     "secure-random": "^1.1.1",
     "coinkey": "^1.2.0",
     "qr-encode": "^0.2.0",
-    "coininfo": "^0.2.1"
+    "coininfo": "^0.2.1",
+    "react": "^0.11.2",
+    "react-bootstrap": "^0.12.0"
   },
   "browser": {
     "crypto": "crypto-browserify",
