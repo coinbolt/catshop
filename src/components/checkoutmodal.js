@@ -19,7 +19,8 @@ var CheckoutModal = React.createClass({
   },
   render: function() {
     var totalPrice = this.props.products.reduce(function(price, product) {
-      return price + product.price
+      //money and floats/doubles.... fortunately this isn't realy money
+      return parseFloat((price + product.price).toFixed(3))
     }, 0)
     var contents
     if (this.state.screen === 'cart') {
