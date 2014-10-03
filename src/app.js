@@ -1,8 +1,8 @@
 /** @jsx React.DOM */
 
-var CheckoutButton = require('./CheckoutButton');
-var ProductList = require('./productlist');
-var React = require('react');
+var CheckoutButton = require('./CheckoutButton')
+var ProductList = require('./productlist')
+var React = require('react')
 
 var App = React.createClass({
   render: function() {
@@ -36,8 +36,8 @@ var App = React.createClass({
 
         <ProductList data={this.props.products} />
       </div>
-    );
+    )
   }
-});
+})
 
-module.exports = App;
+module.exports = App
