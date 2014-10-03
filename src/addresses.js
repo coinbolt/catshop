@@ -10,7 +10,7 @@ function getPaymentAddress() {
   
   var privateKey = secureRandom.randomBuffer(32)
 
-  var key = new CoinKey(privateKey, coinInfo('BTC-TEST')) //compressed by default
+  var key = new CoinKey(privateKey, coinInfo('BTC-TEST').versions) //compressed by default
   var wif = key.privateWif
   var publicAddress = key.publicAddress
 
