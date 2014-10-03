@@ -3,7 +3,7 @@ var CoinKey = require('coinkey')
 var coinInfo = require('coininfo')
 
 function getPaymentAddress() {
-  var keys = localStorage.getItem('keys')
+  var keys = sessionStorage.getItem('keys')
   if (keys) {
     return JSON.parse(keys).publicAddress
   }
@@ -14,7 +14,7 @@ function getPaymentAddress() {
   var wif = key.privateWif
   var publicAddress = key.publicAddress
 
-  localStorage.setItem('keys', JSON.stringify({
+  sessionStorage.setItem('keys', JSON.stringify({
     privateKey: wif,
     publicAddress: publicAddress
   }))
