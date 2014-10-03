@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-var helloblock = require('./helloblock')
+var helloblock = require('@helloblock')
 var qr = require('qr-encode')
 var React = require('react')
 var util = require('util')

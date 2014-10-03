@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/browserify -t reactify ./src/main.js -s catshop -o bundle.js",
-    "watch-build": "./node_modules/.bin/watchify -t reactify ./src/main.js -s catshop -o bundle.js",
+    "build": "./node_modules/.bin/browserify -t reactify ./src/index.js -s catshop -o bundle.js",
+    "watch-build": "./node_modules/.bin/watchify -t reactify ./src/index.js -s catshop -o bundle.js",
     "reload": "./node_modules/.bin/reload --port 8082"
   },
   "author": "JP Richardson",
@@ -30,6 +30,9 @@
     "coininfo": "^0.2.1"
   },
   "browser": {
-    "crypto": "crypto-browserify"
+    "crypto": "crypto-browserify",
+    "@addresses": "./src/addresses.js",
+    "@cat-data": "./src/cat-data.js",
+    "@helloblock": "./src/helloblock.js" 
   }
 }

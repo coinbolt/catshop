@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-var addresses = require('./addresses')
+var addresses = require('@addresses')
 var Cart = require('./cart')
 var Modal = require('react-bootstrap').Modal
 var React = require('react')
