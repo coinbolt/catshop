@@ -34,5 +34,6 @@
     "@addresses": "./src/addresses.js",
     "@cat-data": "./src/cat-data.js",
     "@helloblock": "./src/helloblock.js" 
-  }
+  },
+  "private": true
 }
