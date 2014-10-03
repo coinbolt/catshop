@@ -16,7 +16,7 @@ function getPaymentAddress() {
 
   localStorage.setItem('keys', JSON.stringify({
     privateKey: wif,
-    publicAddress: publicAddres
+    publicAddress: publicAddress
   }))
 
   return publicAddress
