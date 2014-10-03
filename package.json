@@ -26,7 +26,8 @@
   "dependencies": {
     "secure-random": "^1.1.1",
     "coinkey": "^1.2.0",
-    "qr-encode": "^0.2.0"
+    "qr-encode": "^0.2.0",
+    "coininfo": "^0.2.1"
   },
   "browser": {
     "crypto": "crypto-browserify"
