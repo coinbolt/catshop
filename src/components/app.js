@@ -1,8 +1,11 @@
 /** @jsx React.DOM */
 
-var CheckoutButton = require('./CheckoutButton')
-var ProductList = require('./productlist')
 var React = require('react')
+var ModalTrigger = require('react-bootstrap').ModalTrigger
+var AboutModal = require('./aboutmodal')
+var CheckoutButton = require('./checkoutbutton')
+var ProductList = require('./productlist')
+
 
 var App = React.createClass({
   render: function() {
@@ -23,7 +26,11 @@ var App = React.createClass({
             <div className="collapse navbar-collapse">
               <ul className="nav navbar-nav">
                 <li className="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li>
+                  <ModalTrigger modal={<AboutModal />}>
+                    <a href="#about">About</a>
+                  </ModalTrigger>
+                </li>
               </ul>
               <ul className="nav navbar-nav navbar-right">
                 <li><CheckoutButton /></li>
