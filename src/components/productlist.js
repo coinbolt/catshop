@@ -1,6 +1,4 @@
-/**
- * @jsx React.DOM
- */
+/** @jsx React.DOM */
 
 var Product = require('./product')
 var React = require('react')
