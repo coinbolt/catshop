@@ -1,34 +1,34 @@
 /** @jsx React.DOM */
 
-var productAdded = require('./productevents').productAdded;
-var productRemoved = require('./productevents').productRemoved;
-var React = require('react/addons');
+var productAdded = require('./productevents').productAdded
+var productRemoved = require('./productevents').productRemoved
+var React = require('react/addons')
 
-var cx = React.addons.classSet;
+var cx = React.addons.classSet
 
 var Product = React.createClass({
   getInitialState: function() {
     return {
       addedToCard: false
-    };
+    }
   },
   addToCart: function() {
     this.setState({
       addedToCard: true
-    });
-    productAdded.publish(this.props.product);
+    })
+    productAdded.publish(this.props.product)
   },
   componentDidMount: function() {
-    productRemoved.subscribe(this.onProductRemoved);
+    productRemoved.subscribe(this.onProductRemoved)
   },
   componentWillUnmount: function() {
-    productRemoved.unsubscribe(this.onProductRemoved);
+    productRemoved.unsubscribe(this.onProductRemoved)
   },
   onProductRemoved: function(e, removed) {
     if (removed === this.props.product || !removed) {
       this.setState({
         addedToCard: false
-      });
+      })
     }
   },
   render: function() {
@@ -37,7 +37,7 @@ var Product = React.createClass({
       'btn-success': true,
       'btn-lg': true,
       'btn-hidden': this.state.addedToCard
-    });
+    })
     return (
       <div className="col-6 col-sm-6 col-lg-4 cat">
         <img src={this.props.product.image} className="img-responsive" />
@@ -47,8 +47,8 @@ var Product = React.createClass({
           Add to Cart
         </button>
       </div>
-    );
+    )
   }
-});
+})
 
-module.exports = Product;
+module.exports = Product

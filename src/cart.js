@@ -1,13 +1,14 @@
 /** @jsx React.DOM */
 
-var CartItem = require('./cartitem');
-var React = require('react');
+var CartItem = require('./cartitem')
+var React = require('react')
 
 var Cart = React.createClass({
   render: function() {
     var cartItems = this.props.products.map(function(product) {
       return <CartItem key={product.id} product={product} />
-    });
+    })
+
     return (
       <table className="table table-hover">
         <thead>
@@ -28,8 +29,8 @@ var Cart = React.createClass({
           </tr>
         </tbody>
       </table>
-    );
+    )
   }
-});
+})
 
-module.exports = Cart;
+module.exports = Cart

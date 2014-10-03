@@ -1,12 +1,12 @@
 /** @jsx React.DOM */
 
-var React = require('react');
-var productRemoved = require('./productevents').productRemoved;
+var React = require('react')
+var productRemoved = require('./productevents').productRemoved
 
 var CartItem = React.createClass({
   handleRemove: function(e) {
-    e.stopPropagation();
-    productRemoved.publish(this.props.product);
+    e.stopPropagation()
+    productRemoved.publish(this.props.product)
   },
   render: function() {
     return (
@@ -32,8 +32,8 @@ var CartItem = React.createClass({
           </button>
         </td>
       </tr>
-    );
+    )
   }
-});
+})
 
-module.exports = CartItem;
+module.exports = CartItem
