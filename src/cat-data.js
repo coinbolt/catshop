@@ -19,8 +19,8 @@ function getCats(num, lowPrice, highPrice) {
   for (var i = 0; i < num; ++i) {
     var cat = {
       id: i,
-      image: catImages[i],
-      name: catNames[Math.floor(Math.random() * catNames.length)],
+      image: catImages.splice(Math.floor(Math.random() * catImages.length), 1),
+      name: catNames.splice(Math.floor(Math.random() * catNames.length), 1),
       price: Math.round((lowPrice + Math.random()*(highPrice - lowPrice)) * 1000) / 1000
     }
     cats.push(cat)
