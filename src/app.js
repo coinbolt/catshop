@@ -34,7 +34,9 @@ var App = React.createClass({
           </div>
         </div>
 
-        <ProductList data={this.props.products} />
+        <div className="container">
+          <ProductList data={this.props.products} />
+        </div>
       </div>
     )
   }
