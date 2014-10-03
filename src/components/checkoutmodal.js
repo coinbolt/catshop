@@ -1,10 +1,12 @@
 /** @jsx React.DOM */
 
+var React = require('react')
+var Modal = require('react-bootstrap').Modal
 var addresses = require('@addresses')
 var CheckoutCart = require('./checkoutcart')
 var CheckoutQr = require('./checkoutqr')
-var Modal = require('react-bootstrap').Modal
-var React = require('react')
+
+
 
 var CheckoutModal = React.createClass({
   getInitialState: function() {

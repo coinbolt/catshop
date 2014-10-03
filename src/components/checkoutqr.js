@@ -1,14 +1,14 @@
 /** @jsx React.DOM */
 
-var helloblock = require('@helloblock')
+var util = require('util')
 var qr = require('qr-encode')
 var React = require('react')
-var util = require('util')
+var helloblock = require('@helloblock')
 var productRemoved = require('./productevents').productRemoved
 
 function generateQR(address, amount) {
   var url = util.format('bitcoin:%s?amount=%d', address, amount)
-  var dataUri = qr(url, {type: 6, size: 6, level: 'Q'})
+  var dataUri = qr(url, {type: 6, size: 4, level: 'Q'})
   return dataUri
 }
 
@@ -53,11 +53,13 @@ var CheckoutQR = React.createClass({
     return (
       <div>
         <div className="modal-body center">
-          <p>Pay {this.props.totalPrice} BTC to <strong>{this.props.address}</strong> (already paid {this.state.paidValue}).</p>
+          <p>Please send {this.props.totalPrice} BTC to <strong>{this.props.address}</strong></p> 
+          <p>(already paid {this.state.paidValue})</p>
           <img src={generateQR(this.props.address, this.props.totalPrice)} />
-          <div>Status:
+          <p>Status:&nbsp;
             { this.state.paidValue >= this.props.totalPrice ? <span className="glyphicon glyphicon-ok"></span> : null }
-            {this.state.status}</div>
+            {this.state.status}
+          </p>
         </div>
         <div className="modal-footer">
           <button type="button" className="btn btn-default" onClick={this.props.onRequestHide}>
