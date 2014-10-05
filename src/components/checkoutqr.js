@@ -56,6 +56,7 @@ var CheckoutQR = React.createClass({
           <p>Please send {this.props.totalPrice} BTC to <strong>{this.props.address}</strong></p> 
           <p>(already paid {this.state.paidValue})</p>
           <img src={generateQR(this.props.address, this.props.totalPrice)} />
+            { this.state.paidValue === 0 ? <p>Waiting &nbsp;<i className="fa fa-spinner fa-spin"></i></p> : null }
           <p>Status:&nbsp;
             { this.state.paidValue >= this.props.totalPrice ? <span className="glyphicon glyphicon-ok"></span> : null }
             {this.state.status}
