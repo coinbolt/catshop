@@ -20,7 +20,7 @@ var App = React.createClass({
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <a className="navbar-brand" href="#">Coinbolt Cat Shop - Bitcon Test Network</a>
+              <a className="navbar-brand" href="#">Coinbolt Cat Shop</a>
             </div>
 
             <div className="collapse navbar-collapse">
