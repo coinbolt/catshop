@@ -1,0 +1,1 @@
+These files are from http://lorempixel.com/600/400/cats/

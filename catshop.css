@@ -35,3 +35,27 @@ footer {
 .cat {
   padding-bottom: 14px;
 }
+
+.btn-hidden {
+  visibility: hidden;
+}
+
+.media-object { width: 72px; height: 72px; }
+.col-md-1.center { text-align: center }
+
+
+/* ABOUT MODAL */
+
+#about p {
+  text-align: left;
+  line-height: 1.4em;
+}
+
+#about ol {
+  margin-left: 30px;
+}
+
+#about li {
+  text-align: left;
+  list-style: decimal;
+}
