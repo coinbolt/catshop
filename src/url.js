@@ -1,3 +1,4 @@
+var catData = require('@cat-data')
 
 function getCatsFromUrlConfig() {
   if (!window.location.hash) return []
