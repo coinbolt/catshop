@@ -5,18 +5,28 @@ var Modal = require('react-bootstrap').Modal
 var addresses = require('@addresses')
 var CheckoutCart = require('./checkout-cart')
 var CheckoutQr = require('./checkout-qr')
+var CheckoutDone = require('./checkout-done')
 
 
 var CheckoutModal = React.createClass({
   getInitialState: function() {
     return {
-      screen: 'cart'
+      screen: 'cart',
+      title: 'Cart'
     }
   },
 
   onCheckout: function() {
     this.setState({
-      screen: 'checkout'
+      screen: 'checkout',
+      title: 'Checkout'
+    })
+  },
+
+  onDone: function() {
+    this.setState({
+      screen: 'done',
+      title: 'Congratulations!'
     })
   },
 
@@ -33,15 +43,20 @@ var CheckoutModal = React.createClass({
         onCheckout={this.onCheckout}
         totalPrice={totalPrice}
         onRequestHide={this.props.onRequestHide} />
-    } else {
+    } else if (this.state.screen === 'checkout') {
       contents = <CheckoutQr
         address={addresses.getPaymentAddress()}
         totalPrice={totalPrice}
+        onDone={this.onDone}
+        onRequestHide={this.props.onRequestHide} />
+    } else {
+      contents = <CheckoutDone
+        products={this.props.products}
         onRequestHide={this.props.onRequestHide} />
     }
 
     return this.transferPropsTo(
-      <Modal title="Cart">
+      <Modal title={ this.state.title }>
         { contents }
       </Modal>
     )

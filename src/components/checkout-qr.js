@@ -59,8 +59,7 @@ var CheckoutQR = React.createClass({
     master.index += 1
     settings.set('masterkey', master)
 
-    productRemoved.publish(null)
-    this.props.onRequestHide(e)
+    this.props.onDone()
   },
 
   render: function() {

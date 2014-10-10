@@ -104,8 +104,7 @@ function getCats(num, lowPrice, highPrice) {
       image: catImages.splice(Math.floor(Math.random() * catImages.length), 1),
       name: catNames.splice(Math.floor(Math.random() * catNames.length), 1),
       price: Math.round((lowPrice + Math.random()*(highPrice - lowPrice)) * 1000) / 1000,
-      q1: quotes.splice(Math.floor(Math.random() * quotes.length), 1),
-      q2: quotes.splice(Math.floor(Math.random() * quotes.length), 1)
+      quote: quotes.splice(Math.floor(Math.random() * quotes.length), 1)[0]
     }
     cats.push(cat)
   }
