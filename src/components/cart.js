@@ -2,10 +2,12 @@
 
 var React = require('react')
 var CartItem = require('./cart-item')
-
+var config = require('@config')
 
 var Cart = React.createClass({
   render: function() {
+    var totalPrice = config.unit === 'BITS' ? this.props.totalPriceBits : this.props.totalPrice
+
     var cartItems = this.props.products.map(function(product) {
       return <CartItem key={product.id} product={product} />
     })
@@ -15,7 +17,7 @@ var Cart = React.createClass({
         <thead>
           <tr>
             <th>Product</th>
-            <th className="text-center">Price</th>
+            <th className="text-center">Price ({ config.unit })</th>
             <th className="text-center">Total</th>
             <th></th>
           </tr>
@@ -24,9 +26,10 @@ var Cart = React.createClass({
           {cartItems}
           <tr>
             <td></td>
-            <td><h3>Total</h3></td>
+            <td>Total</td>
             <td className="text-right">
-            <h3><strong>{this.props.totalPrice}</strong></h3></td>
+              <strong>{ totalPrice } { config.unit }</strong>
+            </td>
           </tr>
         </tbody>
       </table>

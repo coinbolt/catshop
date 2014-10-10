@@ -2,6 +2,7 @@
 
 var React = require('react')
 var productRemoved = require('./product-events').productRemoved
+var config = require('@config')
 
 var CartItem = React.createClass({
   handleRemove: function(e) {
@@ -10,6 +11,8 @@ var CartItem = React.createClass({
   },
   
   render: function() {
+    var price = config.unit === 'BITS' ? this.props.product.priceBits : this.props.product.price
+
     return (
       <tr>
         <td>
@@ -25,7 +28,7 @@ var CartItem = React.createClass({
           </div>
         </td>
         <td className="col-sm-1 col-md-1 text-center">
-          <strong>{this.props.product.price}</strong>
+          <strong>{ price }</strong>
         </td>
         <td className="col-sm-1 col-md-1">
           <button type="button" className="btn btn-danger" onClick={this.handleRemove}>

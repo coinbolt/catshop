@@ -19,7 +19,7 @@ var CheckoutCart = React.createClass({
     return (
       <div>
         <div className="modal-body">
-          <Cart products={this.props.products} totalPrice={this.props.totalPrice} />
+          <Cart products={ this.props.products } totalPrice={ this.props.totalPrice } totalPriceBits={ this.props.totalPriceBits } />
         </div>
         <div className="modal-footer">
           <button type="button" className="btn btn-default" onClick={this.props.onRequestHide}>

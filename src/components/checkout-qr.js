@@ -6,6 +6,7 @@ var React = require('react')
 var addresses = require('@addresses')
 var helloblock = require('@helloblock')
 var storage = require('@storage')
+var config = require('@config')
 var productRemoved = require('./product-events').productRemoved
 
 function getUrl(protocol, address, amount) {
@@ -65,11 +66,13 @@ var CheckoutQR = React.createClass({
   render: function() {
     var doneEnabled = this.state.done && (this.state.paidValue >= this.props.totalPrice)
     
+    var priceStr = config.unit === 'BITS' ? this.props.totalPriceBits + ' BITS' : this.props.totalPrice + ' BTC'
+
     return (
       <div>
         <div className="modal-body center">
           <p>
-            Please send {this.props.totalPrice} BTC to
+            Please send { priceStr } to
             <br/>
             <a href={ getUrl('bitcoin', this.props.address, this.props.totalPrice) }>
               <strong>{ this.props.address }</strong>

@@ -11,8 +11,10 @@ var storage = require('@storage')
 var config = require('@config')
 
 var NUM_CATS = 6
-var LOW_PRICE = 0.001 //cheap cat :)
-var HIGH_PRICE = 0.05
+
+//cheap cats :)
+var LOW_PRICE = 0.00008 
+var HIGH_PRICE = 0.0008
 
 var cats = catData.getCats(NUM_CATS, LOW_PRICE, HIGH_PRICE)
 

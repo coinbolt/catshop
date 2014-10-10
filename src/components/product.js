@@ -1,8 +1,9 @@
 /** @jsx React.DOM */
 
+var React = require('react/addons')
 var productAdded = require('./product-events').productAdded
 var productRemoved = require('./product-events').productRemoved
-var React = require('react/addons')
+var config = require('@config')
 
 var cx = React.addons.classSet
 
@@ -43,12 +44,17 @@ var Product = React.createClass({
       'btn-lg': true,
       'btn-hidden': this.state.addedToCard
     })
+
+    if (config.unit === 'BITS')
+      priceStr = this.props.product.priceBits + ' BITS'
+    else
+      priceStr = this.props.product.price + ' BTC'
     
     return (
       <div className="col-6 col-sm-6 col-lg-4 cat">
         <img src={this.props.product.image} className="img-responsive" />
         <h2>{this.props.product.name}</h2>
-        <h4>{this.props.product.price} BTC</h4>
+        <h4>{ priceStr }</h4>
         <button className={classes} onClick={this.addToCart}>
           Add to Cart
         </button>

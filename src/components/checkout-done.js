@@ -18,7 +18,7 @@ var CheckoutDone = React.createClass({
     return (
       <div>
         <div className="modal-body center">
-          <h3>Your cats on their way!</h3>
+          <h3>Your cats are on their way!</h3>
           <h3>(just kidding)</h3>
           <h5>But here are their favorite liberty quotes:</h5>
           <table className="table table-hover">

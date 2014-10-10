@@ -101,13 +101,18 @@ function getCats(num, lowPrice, highPrice) {
   for (var i = 0; i < num; ++i) {
     var cat = {
       id: i,
-      image: catImages.splice(Math.floor(Math.random() * catImages.length), 1),
-      name: catNames.splice(Math.floor(Math.random() * catNames.length), 1),
-      price: Math.round((lowPrice + Math.random()*(highPrice - lowPrice)) * 1000) / 1000,
+      image: catImages.splice(Math.floor(Math.random() * catImages.length), 1)[0],
+      name: catNames.splice(Math.floor(Math.random() * catNames.length), 1)[0],
+      price: parseFloat( (lowPrice + Math.random()*(highPrice - lowPrice)).toFixed(5) ),
       quote: quotes.splice(Math.floor(Math.random() * quotes.length), 1)[0]
     }
     cats.push(cat)
   }
+
+  cats.forEach(function(cat) {
+    cat.priceBits = Math.round(cat.price * 1e6)
+  })
+
   return cats
 }
 
