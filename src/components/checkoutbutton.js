@@ -11,19 +11,23 @@ var CheckoutButton = React.createClass({
       products: []
     }
   },
+
   componentDidMount: function() {
     productevents.productAdded.subscribe(this.onProductAdded)
     productevents.productRemoved.subscribe(this.onProductRemoved)
   },
+
   componentWillUnmount: function() {
     productevents.productAdded.unsubscribe(this.onProductAdded)
     productevents.productRemoved.unsubscribe(this.onProductRemoved)
   },
+
   onProductAdded: function(event, product) {
     this.setState({
       products: this.state.products.concat(product)
     })
   },
+
   onProductRemoved: function(event, removed) {
     if (!removed) {
       this.setState({
@@ -37,6 +41,7 @@ var CheckoutButton = React.createClass({
       })
     }
   },
+  
   render: function() {
     return (
       <ModalTrigger modal={<CheckoutModal products={this.state.products} />}>

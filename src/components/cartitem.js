@@ -8,6 +8,7 @@ var CartItem = React.createClass({
     e.stopPropagation()
     productRemoved.publish(this.props.product)
   },
+  
   render: function() {
     return (
       <tr>

@@ -12,18 +12,22 @@ var Product = React.createClass({
       addedToCard: false
     }
   },
+
   addToCart: function() {
     this.setState({
       addedToCard: true
     })
     productAdded.publish(this.props.product)
   },
+
   componentDidMount: function() {
     productRemoved.subscribe(this.onProductRemoved)
   },
+
   componentWillUnmount: function() {
     productRemoved.unsubscribe(this.onProductRemoved)
   },
+
   onProductRemoved: function(e, removed) {
     if (removed === this.props.product || !removed) {
       this.setState({
@@ -31,6 +35,7 @@ var Product = React.createClass({
       })
     }
   },
+
   render: function() {
     var classes = cx({
       btn: true,
@@ -38,6 +43,7 @@ var Product = React.createClass({
       'btn-lg': true,
       'btn-hidden': this.state.addedToCard
     })
+    
     return (
       <div className="col-6 col-sm-6 col-lg-4 cat">
         <img src={this.props.product.image} className="img-responsive" />

@@ -26,6 +26,7 @@ var CheckoutQR = React.createClass({
       paidValue: 0
     }
   },
+
   componentDidMount: function() {
     var address = this.props.address
     this.connection = helloblock.connectAndListenForTx(address, function(tx) {
@@ -47,9 +48,11 @@ var CheckoutQR = React.createClass({
       })
     }.bind(this))
   },
+
   componentWillUnmount: function() {
     this.connection.close()
   },
+
   handleDoneClick: function(e) {
     //increment index for next address
     var master = settings.get('masterkey')
@@ -59,8 +62,10 @@ var CheckoutQR = React.createClass({
     productRemoved.publish(null)
     this.props.onRequestHide(e)
   },
+
   render: function() {
     var doneEnabled = this.state.done && (this.state.paidValue >= this.props.totalPrice)
+    
     return (
       <div>
         <div className="modal-body center">

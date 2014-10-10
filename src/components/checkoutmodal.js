@@ -7,23 +7,25 @@ var CheckoutCart = require('./checkoutcart')
 var CheckoutQr = require('./checkoutqr')
 
 
-
 var CheckoutModal = React.createClass({
   getInitialState: function() {
     return {
       screen: 'cart'
     }
   },
+
   onCheckout: function() {
     this.setState({
       screen: 'checkout'
     })
   },
+
   render: function() {
     var totalPrice = this.props.products.reduce(function(price, product) {
-      //money and floats/doubles.... fortunately this isn't realy money
+      //money and floats/doubles.... fortunately this isn't really money
       return parseFloat((price + product.price).toFixed(3))
     }, 0)
+
     var contents
     if (this.state.screen === 'cart') {
       contents = <CheckoutCart
@@ -37,9 +39,10 @@ var CheckoutModal = React.createClass({
         totalPrice={totalPrice}
         onRequestHide={this.props.onRequestHide} />
     }
+
     return this.transferPropsTo(
       <Modal title="Cart">
-        {contents}
+        { contents }
       </Modal>
     )
   }
