@@ -1,6 +1,14 @@
+Coinbolt Cat Shop
+=================
+
+Why?
+----
+
 To test your Bitcoin testnet wallet.
 
-### Misc:
+
+Install
+-------
 
 install deps:
 
@@ -14,5 +22,17 @@ run the watch build:
 
     npm run watch-build
 
+compile production build (you'll need Google closure):
 
-Now you can edit/save your JavaScript and the webserver will automatically reload everything
+	npm run build
+
+
+
+License
+-------
+
+MIT Copyright JP Richardson
+
+All JavaScript code in this repository, unless otherwise specified or is not a third party library, is licensed under the MIT license. **Any Coinbolt
+CSS, styles, images, etc DOES NOT fall under the MIT license and is proprietary.** Please don't use it - the default Bootstrap style is pretty nice.
+

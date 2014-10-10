@@ -11,7 +11,7 @@
     "reload": "./node_modules/.bin/reload --port 8082"
   },
   "author": "JP Richardson",
-  "license": "AGPL",
+  "license": "MIT",
   "devDependencies": {
     "browserify": "^5.12.1",
     "crypto-browserify": "^3.2.5",
