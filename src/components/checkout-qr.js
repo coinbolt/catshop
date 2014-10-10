@@ -6,7 +6,7 @@ var React = require('react')
 var addresses = require('@addresses')
 var helloblock = require('@helloblock')
 var settings = require('@settings')
-var productRemoved = require('./productevents').productRemoved
+var productRemoved = require('./product-events').productRemoved
 
 function getUrl(protocol, address, amount) {
   return util.format('%s:%s?amount=%d', protocol, address, amount)

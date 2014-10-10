@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
-var productAdded = require('./productevents').productAdded
-var productRemoved = require('./productevents').productRemoved
+var productAdded = require('./product-events').productAdded
+var productRemoved = require('./product-events').productRemoved
 var React = require('react/addons')
 
 var cx = React.addons.classSet

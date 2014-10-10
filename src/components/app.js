@@ -2,9 +2,9 @@
 
 var React = require('react')
 var ModalTrigger = require('react-bootstrap').ModalTrigger
-var AboutModal = require('./aboutmodal')
-var CheckoutButton = require('./checkoutbutton')
-var ProductList = require('./productlist')
+var AboutModal = require('./about-modal')
+var CheckoutButton = require('./checkout-button')
+var ProductList = require('./product-list')
 
 
 var App = React.createClass({

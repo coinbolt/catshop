@@ -3,8 +3,8 @@
 var React = require('react')
 var Modal = require('react-bootstrap').Modal
 var addresses = require('@addresses')
-var CheckoutCart = require('./checkoutcart')
-var CheckoutQr = require('./checkoutqr')
+var CheckoutCart = require('./checkout-cart')
+var CheckoutQr = require('./checkout-qr')
 
 
 var CheckoutModal = React.createClass({

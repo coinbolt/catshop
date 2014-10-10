@@ -1,7 +1,8 @@
 /** @jsx React.DOM */
 
-var CartItem = require('./cartitem')
 var React = require('react')
+var CartItem = require('./cart-item')
+
 
 var Cart = React.createClass({
   render: function() {

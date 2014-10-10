@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react')
-var productRemoved = require('./productevents').productRemoved
+var productRemoved = require('./product-events').productRemoved
 
 var CartItem = React.createClass({
   handleRemove: function(e) {

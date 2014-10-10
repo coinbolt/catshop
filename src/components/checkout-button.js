@@ -1,8 +1,8 @@
 /** @jsx React.DOM */
 
-var CheckoutModal = require('./checkoutmodal')
+var CheckoutModal = require('./checkout-modal')
 var ModalTrigger = require('react-bootstrap').ModalTrigger
-var productevents = require('./productevents')
+var productevents = require('./product-events')
 var React = require('react')
 
 var CheckoutButton = React.createClass({
