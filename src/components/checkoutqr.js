@@ -6,8 +6,12 @@ var React = require('react')
 var helloblock = require('@helloblock')
 var productRemoved = require('./productevents').productRemoved
 
+function getUrl(protocol, address, amount) {
+  return util.format('%s:%s?amount=%d', protocol, address, amount)
+}
+
 function generateQR(address, amount) {
-  var url = util.format('bitcoin:%s?amount=%d', address, amount)
+  var url = getUrl('bitcoin', address, amount)
   var dataUri = qr(url, {type: 6, size: 4, level: 'Q'})
   return dataUri
 }
@@ -53,7 +57,11 @@ var CheckoutQR = React.createClass({
     return (
       <div>
         <div className="modal-body center">
-          <p>Please send {this.props.totalPrice} BTC to <strong>{this.props.address}</strong></p> 
+          <p>Please send {this.props.totalPrice} BTC to &nbsp;
+            <a href={ getUrl('bitcoin', this.props.address, this.props.totalPrice) }>
+              <strong>{ this.props.address }</strong>
+            </a>
+          </p> 
           <p>(already paid {this.state.paidValue})</p>
           <img src={generateQR(this.props.address, this.props.totalPrice)} />
             { this.state.paidValue === 0 ? <p>Waiting &nbsp;<i className="fa fa-spinner fa-spin"></i></p> : null }
