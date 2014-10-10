@@ -59,3 +59,8 @@ footer {
   text-align: left;
   list-style: decimal;
 }
+
+.modal-body {
+  overflow: auto;
+  height: 300px;
+}
