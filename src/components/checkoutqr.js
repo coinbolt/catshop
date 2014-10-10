@@ -57,7 +57,9 @@ var CheckoutQR = React.createClass({
     return (
       <div>
         <div className="modal-body center">
-          <p>Please send {this.props.totalPrice} BTC to &nbsp;
+          <p>
+            Please send {this.props.totalPrice} BTC to
+            <br/>
             <a href={ getUrl('bitcoin', this.props.address, this.props.totalPrice) }>
               <strong>{ this.props.address }</strong>
             </a>
