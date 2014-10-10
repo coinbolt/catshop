@@ -36,7 +36,8 @@
     "@addresses": "./src/addresses.js",
     "@cat-data": "./src/cat-data.js",
     "@helloblock": "./src/helloblock.js",
-    "@storage": "./src/storage.js"
+    "@storage": "./src/storage.js",
+    "@config": "./src/config.js"
   },
   "private": true
 }
