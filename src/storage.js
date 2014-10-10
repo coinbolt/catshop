@@ -16,10 +16,10 @@ function reviver(key, value) {
     return value
 }
 
-var settings = {
+var storage = {
   clear: function() {
-    settings.keys().forEach(function(key) {
-      settings.remove(key)
+    storage.keys().forEach(function(key) {
+      storage.remove(key)
     })
   },
 
@@ -44,4 +44,4 @@ var settings = {
   }
 }
 
-module.exports = settings
+module.exports = storage

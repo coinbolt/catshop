@@ -2,20 +2,20 @@ var CoinKey = require('coinkey')
 var coinInfo = require('coininfo')
 var HDKey = require('hdkey')
 var secureRandom = require('secure-random')
-var settings = require('@settings')
+var storage = require('@storage')
 
 //localStorage key, not related to Bitcoin keys
-var SETTINGS_KEY = 'masterkey'
+var KEY = 'masterkey'
 
 function getPaymentAddress() {
-  var master = settings.get(SETTINGS_KEY)
+  var master = storage.get(KEY)
   if (!master) {
     master = {
       //128 bit seed, typically you'd generate from mnemonic, see: https://www.npmjs.org/package/bip39
       seed: secureRandom.randomBuffer(16),
       index: 0
     }
-    settings.set(SETTINGS_KEY, master)
+    storage.set(KEY, master)
   }
 
   var masterkey = HDKey.fromMasterSeed(master.seed)

@@ -7,7 +7,7 @@ delete Buffer.prototype.toJSON
 var React = require('react')
 var App = require('./components/app')
 var catData = require('./cat-data')
-var settings = require('@settings')
+var storage = require('@storage')
 
 var NUM_CATS = 6
 var LOW_PRICE = 0.001 //cheap cat :)
@@ -21,7 +21,7 @@ window.React = React
 window.App = App
 window.Buffer = Buffer //(from Browserify)
 window.cats = cats
-window.settings = settings
+window.storage = storage
 
 React.renderComponent(
   <App products={cats} />,

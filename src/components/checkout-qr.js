@@ -5,7 +5,7 @@ var qr = require('qr-encode')
 var React = require('react')
 var addresses = require('@addresses')
 var helloblock = require('@helloblock')
-var settings = require('@settings')
+var storage = require('@storage')
 var productRemoved = require('./product-events').productRemoved
 
 function getUrl(protocol, address, amount) {
@@ -55,9 +55,9 @@ var CheckoutQR = React.createClass({
 
   handleDoneClick: function(e) {
     //increment index for next address
-    var master = settings.get('masterkey')
+    var master = storage.get('masterkey')
     master.index += 1
-    settings.set('masterkey', master)
+    storage.set('masterkey', master)
 
     this.props.onDone()
   },
