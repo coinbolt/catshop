@@ -78,7 +78,7 @@ var CheckoutQR = React.createClass({
           <p>
             Please send { priceStr } to
             <br/>
-            <a href={ getUrl('bitcoin', this.props.address, this.props.totalPrice) }>
+            <a href={ getUrl(config.protocol, this.props.address, this.props.totalPrice) }>
               <strong>{ this.props.address }</strong>
             </a>
           </p> 
