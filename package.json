@@ -28,7 +28,8 @@
     "qr-encode": "^0.2.0",
     "coininfo": "^0.2.1",
     "react": "^0.11.2",
-    "react-bootstrap": "^0.12.0"
+    "react-bootstrap": "^0.12.0",
+    "hdkey": "^0.4.0"
   },
   "browser": {
     "crypto": "crypto-browserify",
