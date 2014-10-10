@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "closure": "java -jar /usr/local/closure/compiler.jar --compilation_level SIMPLE_OPTIMIZATIONS --language_in ECMASCRIPT5 --js bundle.js --warning_level quiet > bundle.min.js",
-    "build": "./node_modules/.bin/browserify -t reactify ./src/index.js -s catshop -o bundle.js",
+    "closure": "java -jar /usr/local/closure/compiler.jar --compilation_level SIMPLE_OPTIMIZATIONS --language_in ECMASCRIPT5 --js bundle-build.js --warning_level quiet > bundle.js",
+    "browserify": "./node_modules/.bin/browserify -t reactify -p bundle-collapser/plugin ./src/index.js -s catshop -o bundle-build.js",
+    "build": "npm run browserify && npm run closure && rm -f bundle-build.js",
     "watch-build": "./node_modules/.bin/watchify -t reactify ./src/index.js -s catshop -o bundle.js",
     "reload": "./node_modules/.bin/reload --port 8082"
   },
@@ -16,7 +17,8 @@
     "crypto-browserify": "^3.2.5",
     "reload": "^0.1.0",
     "watchify": "^1.0.6",
-    "reactify": "^0.14.0"
+    "reactify": "^0.14.0",
+    "bundle-collapser": "^1.1.0"
   },
   "repository": {
     "url": "git@github.com:jprichardson/catshop.git",
