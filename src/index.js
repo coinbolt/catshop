@@ -1,5 +1,9 @@
 /** @jsx React.DOM */
 
+//Browserify buffer toJSON is not Node compatible, we remove it so we can
+//safely stringify on our own
+delete Buffer.prototype.toJSON
+
 var React = require('react')
 var App = require('./components/app')
 var catData = require('./cat-data')
@@ -15,6 +19,7 @@ var cats = catData.getCats(NUM_CATS, LOW_PRICE, HIGH_PRICE)
 //for easy experimentation from the browser console
 window.React = React
 window.App = App
+window.Buffer = Buffer //(from Browserify)
 window.cats = cats
 window.settings = settings
 
