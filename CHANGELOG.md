@@ -1,4 +1,4 @@
-0.x.y / 2014-10-xx
+0.1.0 / 2014-10-10
 ------------------
 - prerender for SEO
 - added `bitcoin:` anchor on checkout (so you can click and your client will open up)
