@@ -49,7 +49,6 @@ function configureFromUrl() {
     //only protocol for now
     if (data.config && data.config.protocol)
       _config.protocol = data.config.protocol
-
   }
 }
 
@@ -58,6 +57,5 @@ try {
 } catch (err) {
   console.error(err)
 }
-
 
 module.exports = _config

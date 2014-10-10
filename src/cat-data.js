@@ -1,4 +1,5 @@
 var util = require('util')
+var _ = require('lodash')
 
 var IMG_URL = "http://lorempixel.com/600/400/cats/"
 
@@ -16,7 +17,7 @@ var catNames = [
   'Whiskers'
 ]
 
-var quotes = [
+var catQuotes = [
   {
     "text": "If you are not free to choose wrongly and irresponsibly, you are not free at all.",
     "author": "Jacob Hornberger"
@@ -97,15 +98,32 @@ var quotes = [
 
 
 function getCats(num, lowPrice, highPrice) {
+  var images = _.clone(catImages)
+  var names = _.clone(catNames)
+  var quotes = _.clone(catQuotes)
+
   var cats = []
   for (var i = 0; i < num; ++i) {
+    var imageIndex = Math.floor(Math.random() * images.length)
+    var nameIndex = Math.floor(Math.random() * names.length)
+    var quoteIndex = Math.floor(Math.random() * quotes.length)
+
     var cat = {
       id: i,
-      image: catImages.splice(Math.floor(Math.random() * catImages.length), 1)[0],
-      name: catNames.splice(Math.floor(Math.random() * catNames.length), 1)[0],
+      image: images.splice(imageIndex, 1)[0],
+      name: names.splice(nameIndex, 1)[0],
       price: parseFloat( (lowPrice + Math.random()*(highPrice - lowPrice)).toFixed(5) ),
-      quote: quotes.splice(Math.floor(Math.random() * quotes.length), 1)[0]
+      quote: quotes.splice(quoteIndex, 1)[0]
     }
+
+    var cc = {
+      i: imageIndex,
+      n: nameIndex,
+      q: quoteIndex,
+      p: cat.price
+    }
+    cat.config = cc
+
     cats.push(cat)
   }
 
@@ -116,6 +134,28 @@ function getCats(num, lowPrice, highPrice) {
   return cats
 }
 
+function getCatFromConfig(cc) {
+  var cat = {
+    config: cc,
+    image: catImages[cc.i],
+    name: catNames[cc.n],
+    quote: catQuotes[cc.q],
+    price: cc.p,
+    priceBits: Math.round(cc.p * 1e6)
+  }
+
+  return cat
+}
+
+function getCatsFromConfigs(arr) {
+  return arr.map(function(cc, i) {
+    var cat = getCatFromConfig(cc)
+    cat.id = i
+    return cat
+  })
+}
+
 module.exports = {
-  getCats: getCats
+  getCats: getCats,
+  getCatsFromConfigs: getCatsFromConfigs
 }

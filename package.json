@@ -29,7 +29,8 @@
     "coininfo": "^0.2.1",
     "react": "^0.11.2",
     "react-bootstrap": "^0.12.0",
-    "hdkey": "^0.4.0"
+    "hdkey": "^0.4.0",
+    "lodash": "^2.4.1"
   },
   "browser": {
     "crypto": "crypto-browserify",
@@ -37,7 +38,8 @@
     "@cat-data": "./src/cat-data.js",
     "@helloblock": "./src/helloblock.js",
     "@storage": "./src/storage.js",
-    "@config": "./src/config.js"
+    "@config": "./src/config.js",
+    "@url": "./src/url.js"
   },
   "private": true
 }

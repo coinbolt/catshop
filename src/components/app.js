@@ -5,10 +5,13 @@ var ModalTrigger = require('react-bootstrap').ModalTrigger
 var AboutModal = require('./about-modal')
 var CheckoutButton = require('./checkout-button')
 var ProductList = require('./product-list')
-
+var BoughtModalTrigger = require('./bought')
+var url = require('@url')
 
 var App = React.createClass({
   render: function() {
+    var cats = url.getCatsFromUrlConfig()
+
     return (
       <div>
         <div className="navbar navbar-fixed-top navbar-inverse" role="navigation">
@@ -43,6 +46,10 @@ var App = React.createClass({
         <div className="container">
           <ProductList data={this.props.products} />
         </div>
+        
+
+        {cats.length ? <BoughtModalTrigger /> : <span/> }
+
       </div>
     )
   }

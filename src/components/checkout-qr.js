@@ -36,11 +36,14 @@ var CheckoutQR = React.createClass({
       }).reduce(function(value, output) {
         return value + output.value
       }, 0)
+      
       this.setState({
         done: true,
         status: 'Confirmed (' + tx.confirmations + ')',
         paidValue: this.state.paidValue + (value / 100000000)
       })
+
+      this.handleDone()
     }.bind(this), function(error) {
       this.setState({
         done: true,
@@ -54,7 +57,7 @@ var CheckoutQR = React.createClass({
     this.connection.close()
   },
 
-  handleDoneClick: function(e) {
+  handleDone: function(e) {
     //increment index for next address
     var master = storage.get('masterkey')
     master.index += 1
@@ -94,7 +97,7 @@ var CheckoutQR = React.createClass({
           <button type="button" className="btn btn-default" onClick={this.props.onRequestHide}>
             Cancel
           </button>
-          <button type="button" className="btn btn-success" disabled={!doneEnabled} onClick={this.handleDoneClick}>
+          <button type="button" className="btn btn-success" disabled={!doneEnabled} onClick={ this.handleDone }>
             Done <span className="glyphicon glyphicon-play"></span>
           </button>
         </div>

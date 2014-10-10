@@ -11,7 +11,7 @@ var CheckoutDone = require('./checkout-done')
 var CheckoutModal = React.createClass({
   getInitialState: function() {
     return {
-      screen: 'cart',
+      screen: this.props.screen || 'cart',
       title: 'Cart'
     }
   },

@@ -25,6 +25,7 @@ window.React = React
 window.App = App
 window.Buffer = Buffer //(from Browserify)
 window.cats = cats
+window.catData = catData
 window.config = config
 window.storage = storage
 
