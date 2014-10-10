@@ -15,7 +15,7 @@ function getUrl(protocol, address, amount) {
 
 function generateQR(address, amount) {
   var url = getUrl('bitcoin', address, amount)
-  var dataUri = qr(url, {type: 6, size: 4, level: 'Q'})
+  var dataUri = qr(url, {type: 6, size: 3, level: 'Q'})
   return dataUri
 }
 
@@ -66,11 +66,15 @@ var CheckoutQR = React.createClass({
   render: function() {
     var doneEnabled = this.state.done && (this.state.paidValue >= this.props.totalPrice)
     
+    var modalBodyStyles = {
+      padding: '0px'
+    }
+
     var priceStr = config.unit === 'BITS' ? this.props.totalPriceBits + ' BITS' : this.props.totalPrice + ' BTC'
 
     return (
       <div>
-        <div className="modal-body center">
+        <div className="modal-body" style={ modalBodyStyles }>
           <p>
             Please send { priceStr } to
             <br/>
