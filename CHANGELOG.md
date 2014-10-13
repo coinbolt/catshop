@@ -1,3 +1,7 @@
+0.1.x / 2014-10-xx
+------------------
+- show "added to cart" message after clicking button
+
 0.1.0 / 2014-10-10
 ------------------
 - prerender for SEO

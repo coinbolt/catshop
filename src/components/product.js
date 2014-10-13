@@ -55,9 +55,13 @@ var Product = React.createClass({
         <img src={this.props.product.image} className="img-responsive" />
         <h2>{this.props.product.name}</h2>
         <h4>{ priceStr }</h4>
-        <button className={classes} onClick={this.addToCart}>
-          Add to Cart
-        </button>
+        {
+          this.state.addedToCart ? 
+            <strong>(Added to Cart)</strong> :
+            <button className={classes} onClick={this.addToCart}>
+              Add to Cart
+            </button>
+        }
       </div>
     )
   }
