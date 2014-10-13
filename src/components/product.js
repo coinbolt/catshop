@@ -10,13 +10,13 @@ var cx = React.addons.classSet
 var Product = React.createClass({
   getInitialState: function() {
     return {
-      addedToCard: false
+      addedToCart: false
     }
   },
 
   addToCart: function() {
     this.setState({
-      addedToCard: true
+      addedToCart: true
     })
     productAdded.publish(this.props.product)
   },
@@ -32,7 +32,7 @@ var Product = React.createClass({
   onProductRemoved: function(e, removed) {
     if (removed === this.props.product || !removed) {
       this.setState({
-        addedToCard: false
+        addedToCart: false
       })
     }
   },
@@ -42,7 +42,7 @@ var Product = React.createClass({
       btn: true,
       'btn-success': true,
       'btn-lg': true,
-      'btn-hidden': this.state.addedToCard
+      'btn-hidden': this.state.addedToCart
     })
 
     if (config.unit === 'BITS')
