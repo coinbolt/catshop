@@ -44,7 +44,7 @@ var catQuotes = [
   },
   {
     "text": "I believe that every individual is naturally entitled to do as he pleases with himself and the fruits of his labor, so far as it in no way interferes with any other men’s rights.",
-    "author": "Satoshi Nakamoto"
+    "author": "Abraham Lincoln"
   },
   {
     "text": "The first lesson of economics is scarcity: There is never enough of anything to satisfy all those who want it. The first lesson of politics is to disregard the first lesson of economics.",
