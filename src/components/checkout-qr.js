@@ -95,7 +95,7 @@ var CheckoutQR = React.createClass({
           <p>
             Please send { priceStr } to
             <br/>
-            <a href={ url }>
+            (scan QR or click here): <a href={ url }>
               <strong>{ this.props.address }</strong>
             </a>
           </p> 
