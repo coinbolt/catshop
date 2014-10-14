@@ -64,3 +64,7 @@ footer {
   overflow: auto;
   height: 300px;
 }
+
+#checkout-qr p {
+  margin-bottom: 3px;
+}

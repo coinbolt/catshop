@@ -10,6 +10,8 @@ To test your Bitcoin testnet wallet.
 Install
 -------
 
+clone repo
+
 install deps:
 
     npm install

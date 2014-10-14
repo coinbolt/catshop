@@ -91,7 +91,7 @@ var CheckoutQR = React.createClass({
 
     return (
       <div>
-        <div className="modal-body" style={ modalBodyStyles }>
+        <div className="modal-body" id="checkout-qr" style={ modalBodyStyles }>
           <p>
             Please send { priceStr } to
             <br/>
