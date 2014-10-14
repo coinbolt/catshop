@@ -1,6 +1,12 @@
 Coinbolt Cat Shop
 =================
 
+Demo
+----
+
+https://www.coinbolt.com/catshop/
+
+
 Why?
 ----
 
