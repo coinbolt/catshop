@@ -1,4 +1,4 @@
-0.1.x / 2014-10-xx
+0.1.1 / 2014-10-14
 ------------------
 - show "added to cart" message after clicking button
 - fix misattributed quote
