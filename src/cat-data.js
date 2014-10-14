@@ -98,9 +98,17 @@ var catQuotes = [
 
 
 function getCats(num, lowPrice, highPrice) {
-  var images = _.clone(catImages)
-  var names = _.clone(catNames)
-  var quotes = _.clone(catQuotes)
+  var images = catImages.map(function(img, i) {
+    return {img: img, id: i}
+  })
+
+  var names = catNames.map(function(name, i) {
+    return {name: name, id: i}
+  })
+
+  var quotes = catQuotes.map(function(quote, i) {
+    return {quote: quote, id: i}
+  })
 
   var cats = []
   for (var i = 0; i < num; ++i) {
@@ -108,18 +116,22 @@ function getCats(num, lowPrice, highPrice) {
     var nameIndex = Math.floor(Math.random() * names.length)
     var quoteIndex = Math.floor(Math.random() * quotes.length)
 
+    var img = images.splice(imageIndex, 1)[0]
+    var name = names.splice(nameIndex, 1)[0]
+    var quote = quotes.splice(quoteIndex, 1)[0]
+
     var cat = {
       id: i,
-      image: images.splice(imageIndex, 1)[0],
-      name: names.splice(nameIndex, 1)[0],
+      image: img.img,
+      name: name.name,
       price: parseFloat( (lowPrice + Math.random()*(highPrice - lowPrice)).toFixed(5) ),
-      quote: quotes.splice(quoteIndex, 1)[0]
+      quote: quote.quote,
     }
 
     var cc = {
-      i: imageIndex,
-      n: nameIndex,
-      q: quoteIndex,
+      i: img.id,
+      n: name.id,
+      q: quote.id,
       p: cat.price
     }
     cat.config = cc
