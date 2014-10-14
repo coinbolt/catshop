@@ -7,12 +7,16 @@ var addresses = require('@addresses')
 var helloblock = require('@helloblock')
 var storage = require('@storage')
 var config = require('@config')
+var urlUtil = require('@url')
 var productRemoved = require('./product-events').productRemoved
 
-function getUrl(protocol, address, amount) {
-  return util.format('%s:%s?amount=%d', protocol, address, amount)
+function getUrl(protocol, address, amount, rurl) {
+  if (!rurl)
+    return util.format('%s:%s?amount=%d', protocol, address, amount)
+  else
+    return util.format('%s:%s?amount=%d&r=%s', protocol, address, amount, encodeURIComponent(rurl))
 }
-
+  
 function generateQR(address, amount) {
   var url = getUrl('bitcoin', address, amount)
   var dataUri = qr(url, {type: 6, size: 3, level: 'Q'})
@@ -75,13 +79,23 @@ var CheckoutQR = React.createClass({
 
     var priceStr = config.unit === 'BITS' ? this.props.totalPriceBits + ' BITS' : this.props.totalPrice + ' BTC'
 
+    //faux bip70-72 support, TODO: add it (need server component)
+    //this is pretty eewwww
+    var burl = urlUtil.getBoughtUrlConfig(this.props.products)
+    console.log(burl)
+
+    var url = config.protocol === 'coinbolt' ? getUrl(config.protocol, this.props.address, this.props.totalPrice, burl)
+                                             : getUrl(config.protocol, this.props.address, this.props.totalPrice)
+
+    console.log(url)
+
     return (
       <div>
         <div className="modal-body" style={ modalBodyStyles }>
           <p>
             Please send { priceStr } to
             <br/>
-            <a href={ getUrl(config.protocol, this.props.address, this.props.totalPrice) }>
+            <a href={ url }>
               <strong>{ this.props.address }</strong>
             </a>
           </p> 

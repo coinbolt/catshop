@@ -18,6 +18,15 @@ function getCatsFromUrlConfig() {
  return cats
 }
 
+function getBoughtUrlConfig(cats) {
+  var loc = window.location
+  var base =  "#bought?"
+  var catConfigs = cats.map(function(cat) { return cat.config })
+  var catConfigB64 = new Buffer(JSON.stringify(catConfigs)).toString('base64')
+  return loc.origin + loc.pathname + base + catConfigB64
+}
+
 module.exports = {
+  getBoughtUrlConfig: getBoughtUrlConfig,
   getCatsFromUrlConfig: getCatsFromUrlConfig
 }

@@ -48,6 +48,7 @@ var CheckoutModal = React.createClass({
         onRequestHide={this.props.onRequestHide} />
     } else if (this.state.screen === 'checkout') {
       contents = <CheckoutQr
+        products={ this.props.products }
         address={addresses.getPaymentAddress()}
         totalPrice={ totalPrice }
         totalPriceBits={ totalPriceBits }

@@ -2,6 +2,7 @@
 ------------------
 - show "added to cart" message after clicking button
 - fix misattributed quote
+- clickable link for redirect
 
 0.1.0 / 2014-10-10
 ------------------
