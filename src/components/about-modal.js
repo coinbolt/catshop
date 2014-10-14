@@ -2,6 +2,7 @@
 
 var React = require('react')
 var Modal = require('react-bootstrap').Modal
+var pkg = require('../../package')
 
 var AboutModal = React.createClass({
   getInitialState: function() {
@@ -9,7 +10,7 @@ var AboutModal = React.createClass({
   },
   render: function() {
     return this.transferPropsTo(
-      <Modal title="About" id="about">
+      <Modal title={"About " + pkg.version} id="about">
         <div className="modal-body">
           <p>
             The <a href="https://www.coinbolt.com/catshop">Coinbolt Cat Shop</a> enables you to experience buying things online
