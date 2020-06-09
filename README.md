@@ -5,6 +5,7 @@ Demo
 ----
 
 https://www.coinbolt.com/catshop/
+[![Run on Repl.it](https://repl.it/badge/github/coinbolt/catshop)](https://repl.it/github/coinbolt/catshop)
 
 
 Why?
